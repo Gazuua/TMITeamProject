@@ -1,0 +1,40 @@
+<!-- 로그인 페이지 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TMI - LOGIN PAGE</title>
+  	<link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.message a').click(function(){
+          $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <div id="login-page">
+      <div id="form">
+
+        <!-- 로그인 -->
+        <form id="login-form" method="post" action="/login">
+          <input type="text" name="id" class="info" placeholder="id"/>
+          <input type="password" name="pw" class="info" placeholder="password"/>
+          <input type="submit" class="btn" value="login"/>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+
+        <!-- 회원가입 -->
+        <form id="register-form" method="post" action="/register">
+          <input type="text" name="id" class="info" placeholder="id"/>
+          <input type="password" name="pw" class="info" placeholder="password"/>
+          <input type="submit" class="btn" value="create"/>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+
+      </div>
+    </div>
+  </body>
+</html>

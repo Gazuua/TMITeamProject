@@ -1,0 +1,220 @@
+<!-- 메인 페이지 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>TMI</title>
+  <link rel="stylesheet" type="text/css" href="mainStyle.css">
+  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script src=mainScript.js></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f619b775bdfa63804a0c50ec5eea853"></script>
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: "/session",
+        type: "get",
+        success: function(result) {
+          if (!result.success) {
+            alert("세션이 만료되었거나 접근 권한이 없어 로그인 페이지로 이동합니다.");
+            location.href = "login.html";
+          } else {
+            $('#saveID').attr("name", result.id);
+            $.ajax({
+              url: "/catload",
+              type: "post",
+              dataType: "json",
+              data: {
+                id: $('#saveID').attr("name")
+              },
+              success: function(result) {
+                if (result.category.length != 0) {
+                  alert("가장 최근 선택한 카테고리는 " + result.category + "입니다.");
+                }
+                $('#my_name').text($("#saveID").attr("name"));
+              }
+            });
+          }
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="page-wrapper">
+
+    <header id="main-header">
+      <!-- 로고 -->
+      <div class="member">
+        <p id="my_name"></p>
+        <a href="/logout">로그아웃</a>
+      </div>
+      <a href="main.html" class="logo"><img src="img/headerlogo.png" style="width:calc(0.2*4000px); height:calc(0.2*541px)"/></a>
+    </header>
+
+    <div id="content">
+      <section id="section-tournament">
+
+        <div id="tournament-buttons">
+          <button id="start" class="fun-btn" onclick="dice()">START TOURNAMENT</button>
+          <button id="8-button1" class="def-btn">8강</button>
+          <button id="8-button2" class="def-btn">8강</button>
+          <button id="8-button4" class="def-btn">8강</button>
+          <button id="8-button3" class="def-btn">8강</button>
+          <button id="4-button1" class="def-btn">4강</button>
+          <button id="4-button2" class="def-btn">4강</button>
+          <button id="2-button" class="def-btn">결승</button>
+          <button id="1-button" class="fin-btn">FINISH</button>
+        </div>
+
+        <div id="tournament">
+          <!-- 전체 토너먼트 -->
+
+          <!--줄 안 넣은 경우
+          <div id="tournament-level3">
+            <img class="left-level" id=13 src="img/question.png" />
+            <img class="right-level" id=14 src="img/question.png" />
+          </div>
+
+          <div id="tournament-level2">
+            <img class="left-level" id=9 src="img/question.png" />
+            <img class="left-level" id=10 src="img/question.png" />
+            <img class="right-level" id=12 src="img/question.png" />
+            <img class="right-level" id=11 src="img/question.png" />
+          </div>
+
+          <div id="tournament-level1">
+            <img class="left-level" id=1 src="img/question.png" />
+            <img class="left-level" id=2 src="img/question.png" />
+            <img class="left-level" id=3 src="img/question.png" />
+            <img class="left-level" id=4 src="img/question.png" />
+            <img class="right-level" id=8 src="img/question.png" />
+            <img class="right-level" id=7 src="img/question.png" />
+            <img class="right-level" id=6 src="img/question.png" />
+            <img class="right-level" id=5 src="img/question.png" />
+          </div>
+        </div>
+        -->
+
+        <!--줄 넣은 경우 -->
+          <div id="tournament-level3" class="line">
+            <img class="left-level" id=13 src="img/question.png" />
+            <img class="right-level" id=14 src="img/question.png" />
+          </div>
+
+          <div class="line" id="line2">
+            <img class="left" id=58 style="left:55px" src="img/tournamentLeft.jpg" />
+            <img class="left" id=59 style="right:15px" src="img/tournamentRight.jpg" />
+            <img class="right" id=60 style="left:100px" src="img/tournamentLeft.jpg" />
+            <img class="right" id=61 style="left:20px" src="img/tournamentRight.jpg" />
+          </div>
+
+          <div id="tournament-level2" class="line">
+            <img class="left-level" id=9 src="img/question.png" />
+            <img class="left-level" id=10 src="img/question.png" />
+            <img class="right-level" id=11 src="img/question.png" />
+            <img class="right-level" id=12 src="img/question.png" />
+          </div>
+
+          <div class="line" id="line1">
+            <img class="left" id=50 style="left:30px" src="img/tournamentLeft.jpg" />
+            <img class="left" id=51 style="left:20px" src="img/tournamentRight.jpg" />
+            <img class="left" id=52 style="left:70px" src="img/tournamentLeft.jpg" />
+            <img class="left" id=53 style="left:60px" src="img/tournamentRight.jpg" />
+            <img class="right" id=54 style="left:110px" src="img/tournamentLeft.jpg" />
+            <img class="right" id=55 style="left:100px" src="img/tournamentRight.jpg" />
+            <img class="right" id=56 style="left:150px" src="img/tournamentLeft.jpg" />
+            <img class="right" id=57 style="left:140px" src="img/tournamentRight.jpg" />
+          </div>
+
+          <div id="tournament-level1" class="line">
+            <img class="left-level" id=1 src="img/question.png" />
+            <img class="left-level" id=2 src="img/question.png" />
+            <img class="left-level" id=3 src="img/question.png" />
+            <img class="left-level" id=4 src="img/question.png" />
+            <img class="right-level" id=5 src="img/question.png" />
+            <img class="right-level" id=6 src="img/question.png" />
+            <img class="right-level" id=7 src="img/question.png" />
+            <img class="right-level" id=8 src="img/question.png" />
+          </div>
+        </div>
+
+        <div id="darken-background">
+          <div id="lightbox">
+            <div class="img" style="float:left;">
+              <img id="pic1" style="width:300px; height:300px;" />
+              <h1 id='food1' class="text-box"></h1>
+            </div>
+            <div id="versus" style="float:left;">
+              <img src="img/vs.png" style="width:50px; padding:140px 0 0 20px;"/>
+            </div>
+            <div style="float:right" ;>
+              <img id="pic2" style="width:300px; height:300px;" />
+              <h1 id='food2' class="text-box"></h1>
+            </div>
+          </div>
+        </div>
+        <div id="darken-background1">
+          <div id="resultbox">
+              <a href="main.html"><input type="button" value="다시하기" id="reset" class="re-btn" style="float:left;" / ></a>
+              <button id="next" class="re-btn" style="float:right;">다음 단계로</button>
+              <img id="pic" style="width:300px; height:300px; float:center"; />
+              <h1 id='food'  class="text-box" style="float:center;">1</h1>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-region">
+        <div class="result-box">
+          <img class="main-optional" id=search />
+          <p id="result"></p>
+        </div>
+        <div class="region-box">
+          <form>
+            <select id="region-city" onchange="getSigunguList(this.value);">
+              <option>시 선택</option>
+            </select>
+            <select id="region-part" onchange="changeOptions();">
+              <option>군 선택</option>
+            </select>
+          </form>
+        </div>
+      </section>
+
+      <section id="section-result">
+        <div id="map" style="width:500px;height:400px;"></div>
+        <div id="list">
+          <ol class="thelist"></ol>
+        </div>
+        <div id="btns">
+          <div id="prev-btn">
+            <button id="ppage" onclick="changeOptions();">PREV</button>
+          </div>
+          <div id="next-btn">
+            <button id="npage" onclick="changeOptions();">NEXT</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- #content -->
+
+    <footer>
+      <img src="img/footerlogo.png" class="logo" style="width:calc(0.2*881px); height:calc(0.2*258px)" />
+      <div>
+        <p>Server Programming Design</p>
+        <p>Team Project, Team #2</p>
+        <p>정호균, 임정환, 허유진, 백지영, 백종민</p>
+      </div>
+    </footer>
+
+    <div id="saveID" style="display:none;">
+
+    </div>
+
+  </div>
+  <!-- #page-wrapper -->
+</body>
+
+</html>

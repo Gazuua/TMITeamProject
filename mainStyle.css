@@ -1,0 +1,360 @@
+/* 메인 페이지 */
+* {
+	margin: 0;
+  padding: 0;
+	font-family: '맑은 고딕', 'NanumGothic', 'NanumBarunGothic', sans-serif;
+}
+body{
+  width: 960px;
+	margin: 0 auto;
+	background: #A8D6CD;
+	background: -webkit-linear-gradient(right, #A8D6CD, #6984AD);
+	background: -moz-linear-gradient(right, #A8D6CD, #6984AD);
+	background: -o-linear-gradient(right, #A8D6CD, #6984AD);
+	background: linear-gradient(to left, #A8D6CD, #6984AD);
+	font-family: "Roboto", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#page-wrapper{
+  margin: 40px;
+	padding: 10px 20px;
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#main-header{
+  padding: 30px 0;
+  border-bottom: 1px solid #c8c8c8;
+}
+	.logo{
+	}
+	.member{
+		float:right;
+		padding-right: 20px;
+	}
+	.member a{
+		display: inline;
+		color: black;
+		font-size: 12px;
+		text-decoration: none;
+	}
+	.member p{
+		display: inline;
+		color: gray;
+		font-size: 12px;
+	}
+
+#content{
+  overflow: hidden;
+}
+	#content section{
+	  padding: 20px 0;
+	}
+
+#section-tournament{
+  display: inline-block;
+	border-bottom: 1px solid #c8c8c8;
+}
+	#tournament-buttons{
+		width:840px;
+	  display: flex;
+	  justify-content: center;
+	}
+
+	/* 줄 안 넣은 경우
+	#tournament-level3 img{
+	  padding: 20px 175px;
+		width:70px;
+		height:50px;
+	}
+	#tournament-level2 img{
+	  padding: 20px 70px;
+		width:70px;
+		height:50px;
+	}
+	#tournament-level1 img{
+	  padding: 20px 17.5px;
+		width:70px;
+		height:50px;
+	}*/
+
+	/* 줄 넣은 경우 */
+	.line {
+	  display: flex;
+	}
+	#tournament-level3 img {
+	  padding-left: 175px;
+	  padding-right: 175px;
+	  width: 70px;
+	  height: 50px;
+	}
+	#tournament-level2 img {
+	  padding-left: 70px;
+	  padding-right: 70px;
+	  width: 70px;
+	  height: 50px;
+	}
+	#tournament-level1 img {
+	  padding-left: 17.5px;
+	  padding-right: 17.5px;
+	  width: 70px;
+	  height: 50px;
+	}
+	#line1 img {
+	  padding-left: 17px;
+	  padding-right: 17px;
+	  width: 50px;
+	  height: 50px;
+	}
+	#line2 img {
+	  padding-left: 50px;
+	  padding-right: 50px;
+	  width: 90px;
+	  height: 50px;
+	}
+	.left {
+	  position: relative;
+	  float: left;
+	}
+	.right {
+	  position: relative;
+	  float: right;
+	}
+
+	.left-level{
+		float:left;
+	}
+	.right-level{
+		float:right;
+	}
+
+#section-region{
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	float: right;
+}
+	.result-box{
+		padding: 10px 100px;
+		font-size: 12px;
+	}
+	.region-box {
+	}
+	#section-region select {
+		-webkit-appearance: none;
+		appearance: none;
+		-moz-appearance: window;
+		font-size: 12px;
+		background: #efefef url(http://greenroom.buzzhopper.com/styleguide/img/dropdown_triangle.svg) 130px center no-repeat;
+		background-size: 10px 7px;
+		color: #333;
+		width: 147px;
+		height: 30px;
+		outline: none;
+		border-style: none;
+		outline: none;
+		cursor: pointer;
+		padding: 0 4px 0 5px;
+		transition: all 0.2s ease;
+	}
+	.text-box{
+		font-size: '15px';
+		font-weight: normal;
+	}
+
+footer {
+	margin:0 auto;
+	padding:20px;
+}
+	footer img{
+		margin-right: 10px;
+		float: left;
+		padding: 10px 0;
+	}
+	footer p{
+		font-size:9px;
+		padding: 5px;
+	}
+
+/* start 버튼 */
+.color-bg-start {
+  background-color: #A8D6CD;
+}
+.bg-animate-color {
+  animation: random-bg .5s linear infinite;
+}
+@keyframes random-bg {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+.fun-btn {
+  background-color: #A8D6CD;
+  color: white;
+  font-weight: bold;
+	font-size: 13px;
+  padding: 1em 2em;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: all .3s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  align-self: center;
+  cursor: pointer;
+}
+	.fun-btn:hover {
+	  animation: random-bg .5s linear infinite, grow 1300ms ease infinite;
+	}
+.start-fun {
+  background-color: #fff !important;
+  color: salmon !important;
+}
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+/* 나머지버튼 */
+.def-btn, .fin-btn, .re-btn{
+	background: #6985AD;
+  color: white;
+  font-weight: bold;
+  padding: 1em 2em;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  transition: all .3s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  align-self: center;
+  cursor: pointer;
+}
+	.def-btn:hover{
+		transition: 0.24s ease;
+		color: #6985AD;
+		background-color: transparent;
+	  border: 2px dotted #6985AD;
+	}
+	.fin-btn{
+		cursor: default;
+	}
+	.re-btn{
+		border-radius: 0px;
+		border: 2px solid #000;
+		color: #000;
+		background-color: #fff;
+	}
+	.re-btn:hover{
+		border-radius: 0px;
+		border: 2px solid #fff;
+		color: #fff;
+		background-color: #000;
+	}
+
+#darken-background{
+	position: absolute;
+	top:0; left:0; right: 0;
+	height: 100%;
+	display: none;
+	background: rgba(0,0,0,0.9);
+	z-index: 10000;
+}
+
+#darken-background1{
+	position: absolute;
+	top:0; left:0; right: 0;
+	height: 100%;
+	display: none;
+	background: rgba(0,0,0,0.9);
+	z-index: 10000;
+}
+
+#lightbox, #resultbox{
+	width: 700px;
+	height: 350px;
+	margin: 20px auto; padding:15px;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	background: white;
+	box-shadow: 0 5px 5px rgba(34,25,25,0.4);
+	text-align: center;
+}
+
+/* 리스트 스타일 */
+#list ol {
+		list-style-type: none;
+		counter-reset: ordered;
+}
+
+#list li{
+		font-size: 10px;
+		padding: 5px 5px 5px 5px;
+		margin: 20px 0 5px 40px;
+}
+
+#list li::before {
+		color: #e74c3c;
+		content: counter(ordered);
+		counter-increment: ordered;
+		display: inline-block;
+		font-weight: 100;
+		margin-left: -50px;
+		margin-top: -7px;
+		padding: 5px 13px;
+		position: absolute;
+}
+
+.btn-bar {
+    max-width: 346px;
+    /* 최대 넓이 지정 */
+    margin: 0 auto;
+    /* 외부 여백 */
+    display: block;
+    /* 블록 박스 */
+    position: relative;
+    /* 다른 요소랑 맞춰 정렬 */
+    top: 10px;
+    /* 위로부터 떨어짐 */
+    width: 100%;
+}
+
+#btns{
+    padding: 0 0 5px 0;
+}
+
+#btns button {
+    text-align: center;
+    display: block;
+    font-size: 15px;
+    float: left;
+	  outline: none;
+	  border: none;
+    margin: 0 60px;
+    color: #b14943;
+    text-decoration: none;
+    padding: 9px;
+    width: 35px;
+		cursor: pointer;
+		background-color: transparent;
+}
